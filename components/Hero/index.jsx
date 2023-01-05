@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { useEffect } from "react";
-
-
+import HeroAnimation from "../HeroAnimation";
 
 
 
@@ -123,21 +122,23 @@ function Hero() {
   }
   }, [])
   return (
-    <main className="mt-28 md:mt-40 mx-4 z-0">
+    <main className="pt-28 md:pt-40 mx-4 z-0 overflow-hidden">
       <div className="md:px-40 md:flex md:flex-col md:gap-12">
     <h1 className="text-center  font-clashDisplay font-medium text-[2.285rem] leading-[3.429rem] text-[#333333] md:font-semibold md:text-[5.714rem] md:leading-[8.93rem] ">Photography is poetry and beautiful untold stories</h1>
     <p className="md:px-36 text-center  font-Satoshi text-[#292929] leading-[1.786rem] text-twelve font-medium md:leading-[3.142rem] md:text-size">Flip through more than 10,000 vintage shots, old photograghs, historic images and captures seamlessly in one place. Register to get top access.</p>
     </div>
 
     <div id="swiper"> </div>
-    <div className="flex gap-5 overflow-hidden">
+    {/* <div className="md:flex gap-5 overflow-hidden hidden ">
     <div className="slider"></div>
     <div className="slider1"></div>
     <div className="slider1"></div>
     <div className="slider1"></div>
     <div className="slider1"></div>
 
-    </div>
+    </div> */}
+    <HeroAnimation/>
+
     </main>
     
   )

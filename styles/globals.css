@@ -7,6 +7,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Baskervville&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 
 html,
 body {
@@ -60,7 +63,7 @@ a {
 }
 
 
-.slider1{
+/* .slider1{
   width: 20%;
   margin: 3rem auto;
   height:22rem;
@@ -68,25 +71,23 @@ a {
 
   transform: translate3d(0,0,0);
   background-image:url(/Rectangle230.png),
-  url(/Rectangle232.png),
   url(/Rectangle231.png),
   url(/Rectangle232.png),
   url(/Rectangle233.png),
   url(/Rectangle234.png);
   background-attachment: scroll, scroll, scroll, scroll,scroll;
-  background-position: 50% 20%, 80% 40%, 0% 20%, 10% 40%, 20% 100%;
+  background-position: 0% 20%, 80% 20%, center, 0% 20%, 0% 20%;
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
   background-size: 100%, 100%, 100%, 100%, 100%;
   animation: slide-background 11s cubic-bezier(0.50, 0.0, 0.50, 1) 3s infinite;
 }
 
 @keyframes slide-background {
-    0%{background-position: 0% 50%, 60vw 50%, 10% 50%, 700% 0%, 30% 70%;}
-    25%{background-position: -60vw 50%, 0% 50%, 10% 50%, 30% 50%, 0% 70%;}
-    25.01%{background-position: 60% 50%, 0% 50%, 50% 50%,20% 50%, 0% 40%;}
-    50%{background-position: 60vw 50%, 0% 50%, 70% 40%, 70% 50%, 10% 70%;}
-    75%{background-position: 0% 50%, -60vw 50%, 100% 50%, 30% 50%, 30% 90%;}
-    100%{background-position: 60% 50%, 60vw 50%, 10% 30%, 0% 50%, 50% 70%;}
+    0%{background-position: 0% 0%, 100% 20%, 0% 20%, 0% 20%, 60vw 50%;}
+    25%{background-position: -60vw -0%, 0% 20%, -10% -20%, -30% -20%,-0% -20%;}
+    50%{background-position: -60vw -0%,  -60vw -0%,  60vw 50%, 0% 50%, 0% 20%;}
+    75%{background-position: -60vw -0%,  -60vw 50%, 100% 50%, 60vw 50%, 30% 90%;}
+    100%{background-position: 0% 0%, 0 0%, 0 0%, 0% 0%,  60vw 50%;}
 
 }
 
@@ -95,32 +96,296 @@ a {
 .slider{
   width: 139.84%;
   margin: 0 auto;
-  aspect-ratio: 623/550;
+  aspect-ratio: 185/323;
 
   transform: translate3d(0,0,0);
   background-image:url(/Rectangle230.png),
-  url(/Rectangle232.png),
   url(/Rectangle231.png),
   url(/Rectangle232.png),
   url(/Rectangle233.png),
   url(/Rectangle234.png);
   background-attachment: scroll, scroll, scroll, scroll,scroll;
-  background-position: 50% 20%, 80% 40%, 0% 20%, 10% 40%, 20% 100%;
+  background-position: -394px, -394px, center, -394px,-394px;
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
   background-size: 100%, 100%, 100%, 100%, 100%;
-  animation: slide-background 11s cubic-bezier(0.50, 0.0, 0.50, 1) 3s infinite;
+  animation: slide-background -2s cubic-bezier(0.50, 0.0, 0.50, 1) 3s infinite;
 }
 
-@keyframes slide-background {
-    0%{background-position: 0% 50%, 60vw 50%, 10% 50%, 700% 0%, 30% 70%;}
-    25%{background-position: -60vw 50%, 0% 50%, 10% 50%, 30% 50%, 0% 70%;}
-    25.01%{background-position: 60% 50%, 0% 50%, 50% 50%,20% 50%, 0% 40%;}
-    50%{background-position: 60vw 50%, 0% 50%, 70% 40%, 70% 50%, 10% 70%;}
-    75%{background-position: 0% 50%, -60vw 50%, 100% 50%, 30% 50%, 30% 90%;}
-    100%{background-position: 60% 50%, 60vw 50%, 10% 30%, 0% 50%, 50% 70%;}
-
-}
 
 .slider1.slider2{
   margin: 3rem auto;
+} */
+
+
+
+
+
+.question-section {
+  background: transparent;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  cursor: pointer;
+  width: 100%;
 }
+
+.question-align {
+  align-items: center;
+  display: flex;
+ padding: 1rem;
+  text-align: left;
+}
+
+
+@media only screen and  (min-width:768px){
+  .question-align {
+    align-items: center;
+    display: flex;
+   padding: 2rem;
+    text-align: left;
+  }
+}
+
+.question-align h4 {
+  margin-left: 8px;
+}
+
+.question-styling {
+  font-size: 17px;
+  width: 100%;
+}
+
+.question-icon {
+  background: none;
+  border: none;
+  color: #2F2F2F;
+  cursor: pointer;
+  font-size: 22px;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.answer-divider {
+  border-top: 1px solid lightgray;
+}
+
+.answer {
+  margin-left: 8px;
+  margin-right: 8px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+  text-align: left;
+}
+
+
+.expanded{
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+
+}
+
+
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+}
+
+.textRadius {
+  background: linear-gradient(
+    to right, #f32170, #ff6b08,
+     #cf23cf, #eedd44);
+-webkit-text-fill-color: transparent;
+-webkit-background-clip: text;
+  border: 1px solid transparent;
+  border-radius: 50px;
+}
+
+
+#app { height: 100% }
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+
+.paystack-button {
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.25rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  background-color: #bfbfbf;
+  font-weight: bold;
+  color: #e0eafc;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 60px;
+  margin: 1.5rem 0.5rem
+}
+
+
+/* RangeSlider css */
+
+
+.slider {
+  position: relative;
+  width: 200px;
+}
+
+.slider__track,
+.slider__range {
+  border-radius: 3px;
+  height: 5px;
+  position: absolute;
+}
+
+.slider__track {
+  background-color: black;
+  width: 100%;
+  z-index: 1;
+}
+
+.slider__range{
+  background-color: red;
+  z-index: 2;
+}
+
+/* Removing the default appearance */
+.thumb,
+.thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.thumb {
+  pointer-events: none;
+  position: absolute;
+  height: 0;
+  width: 200px;
+  outline: none;
+}
+
+.thumb--zindex-3 {
+  z-index: 3;
+}
+
+.thumb--zindex-4 {
+  z-index: 4;
+}
+
+.thumb--zindex-5 {
+  z-index: 5;
+}
+
+/* For Chrome browsers */
+.thumb::-webkit-slider-thumb {
+  background-color: #f1f5f7;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 1px #ced4da;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+  margin-top: 4px;
+  pointer-events: all;
+  position: relative;
+}
+
+/* For Firefox browsers */
+.thumb::-moz-range-thumb {
+  background-color: #f1f5f7;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 1px #ced4da;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+  margin-top: 4px;
+  pointer-events: all;
+  position: relative;
+}
+
+.slider__left-value,
+.slider__right-value {
+  color: #dee2e6;
+  font-size: 12px;
+  margin-top: 20px;
+  position: absolute;
+}
+
+.slider__left-value {
+  left: 6px;
+}
+
+.slider__right-value {
+  right: -4px;
+}
+
+
+
+
+
+
+

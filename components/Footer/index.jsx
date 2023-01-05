@@ -1,4 +1,3 @@
-import React from "react";
 import {AiOutlineMail} from "react-icons/ai";
 import {FiMapPin} from "react-icons/fi";
 
@@ -37,7 +36,7 @@ function Footer() {
         </ul>
         </div>
         
-        <div className="flex px-3 gap-2 my-9 flex-col justify-start">
+        <div className="flex px-3 gap-2 py-9 flex-col justify-start">
         <p className="md:hidden ">Reach Us</p>
         <div  className="flex gap-4 items-center">
         <AiOutlineMail size={30} />

@@ -32,7 +32,10 @@ module.exports = {
         'Satoshi': [ 'Satoshi', 'sans-serif'],  
         'Baskervville':['Baskervville', 'serif'], 
         'Rubik':['Rubik', 'sans-serif'], 
-        'Bellefair':['Bellefair', 'serif'],                                                                   
+        'Bellefair':['Bellefair', 'serif'],
+        'STIX': ['STIX Two Text', 'serif'],  
+        'Poppins': ['Poppins', 'sans-serif'],
+        'Inter': ['Inter', 'sans-serif']
       },
 
       keyframes: {
@@ -41,13 +44,24 @@ module.exports = {
           '50%': { "background-image": "url('/Rectangle300.png')" },
           '100%': { "background-image": "url('/Rectangle301.png')" },
         },
+        shake: {
+          '0%': { "background-image": "url('/Female.png')" },
+          '50%': { "background-image": "url('/Rectangle300.png')" },
+          '100%': { "background-image": "url('/Rectangle301.png')" },
+        },
       },
 
       animation: {
         'waving-hand': 'wave 10s infinite ease-in-out',
-      },
+        'shaking-hand': 'shake 10s infinite ease-in-out',
 
       },
+      
+      },
+      
     },
-    plugins: [],
+    plugins: [
+      require('@tailwindcss/line-clamp'),
+      // ...
+    ],
   }
