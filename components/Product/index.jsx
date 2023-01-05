@@ -26,10 +26,10 @@ console.log(filters)
     let sortedProducts = data;
 
     // Filter by category
-    let itemOne = data.filter((item) => item.category === "men's clothing")
-    let itemTwo = data.filter((item) => item.category === "jewelery")
-    let itemThree = data.filter((item) => item.category === "electronics")
-    let itemFour = data.filter((item) => item.category === "women's clothing")
+    let itemOne = data?.filter((item) => item.category === "men's clothing")
+    let itemTwo = data?.filter((item) => item.category === "jewelery")
+    let itemThree = data?.filter((item) => item.category === "electronics")
+    let itemFour = data?.filter((item) => item.category === "women's clothing")
     if(filters.checkbox1 && filters.checkbox4 && filters.checkbox3){
     sortedProducts = [...itemOne, ...itemFour, ...itemThree]
     }  else if(filters.checkbox1 && filters.checkbox2 && filters.checkbox3){
