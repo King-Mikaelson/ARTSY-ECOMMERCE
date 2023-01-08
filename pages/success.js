@@ -10,8 +10,8 @@ import ring1 from "../assets/ring1.png";
 function sucess() {
   return (
     <main className=" relative bg-[#FFFF] h-screen flex flex-col justify-center items-center">
-      <Image src={ring} alt="ring" width={200} height={200} className="w-[496.87px] h-[496.87px] absolute top-0 left-0 z-10 " />
-      <Image src={ring1} alt="ring1" width={200} height={200} className="w-[623.49px] h-[623.49px] absolute top-0 left-0 z-10"  />
+      <Image src={ring} alt="ring" width={200} height={200} className="w-[496.87px] h-[496.87px] absolute top-0 left-0 z-10 hidden md:block " />
+      <Image src={ring1} alt="ring1" width={200} height={200} className="w-[623.49px] h-[623.49px] absolute top-0 left-0 z-10  hidden md:block"  />
       <div className=" flex flex-col justify-center items-center">
         <Image src={delivery} alt="delivery" width={200} height={200} className="w-[275px] h-[246px] md:hidden" />
         <Image src={deliverydesktop} alt="delivery" width={200} height={200} className="hidden md:block w-[454.18px] h-[405.52px]" />
