@@ -1,24 +1,30 @@
 import Link from "next/link";
 import {BiLock} from "react-icons/bi";
 import Img1 from "../../assets/MetaMask.png";
-// import Img2 from "../../assets/CoinBase.png";
+import Img2 from "../../assets/CoinBase.png";
 import Img3 from "../../assets/Phantom.png";
 import Img4 from "../../assets/WalletConnect.png";
 import Img5 from "../../assets/PaystackLogo.png";
-// import Img6 from "../../assets/FlutterWaveLogo.png"
+import Img6 from "../../assets/FlutterWaveLogo.png"
 import { AiOutlinePlus } from "react-icons/ai";
 import Image from "next/image";
 import AppContext from '../Context/AppContext';
 import { ethers } from "ethers";
 import {useState, useContext, useEffect} from "react";
+import { useRouter } from 'next/router'
 
 
 
 
 function ShippingPayment() {
   const [selectedAddress, setSelectedAddress] = useState(null);
+  const [wallet, setWallet] = useState("");
+  const [key, setKey] = useState("");
+  const [expiry, setExpiry] = useState("");
 
   console.log(selectedAddress)
+
+  const router = useRouter()
 
 useEffect(() => {
 const  connectToMetamask = () => {
@@ -80,10 +86,12 @@ const  connectToMetamask = () => {
   const[transactionResponse, setTransactionResponse] = useState(null);
   console.log({amount, destinationAddress});
   console.log(ethers.utils.parseEther(amount.toString())) 
-	const  startPayment = async () => { 
 
-		console.log({amount, destinationAddress});
-    setError("");
+
+	const  startPayment = async () => { 
+    if(wallet && key && expiry){
+
+      setError("");
     setTransactionResponse(null);
     try {
 
@@ -108,13 +116,22 @@ const  connectToMetamask = () => {
         });
     
         console.log({transactionResponse});
+        if(transactionResponse){
+          alert("Payment Successful")
+          router.push('/success')
+        }
         setTransactionResponse(transactionResponse);
     
       } catch (error) {
     
         console.log({error});
+        alert("Transaction Failed - Please check your wallet and try again")
         setError(error.message);
       }
+    
+    }else{
+      alert("Please fill in all fields")
+    }
     
     }
 
@@ -154,11 +171,11 @@ const  connectToMetamask = () => {
 
 <div className="md:flex  md:flex-col lg:flex-row items-center justify-start py-2 hidden">
     <Image className="cursor-pointer"  onClick={() => connectToMetamask()} src={Img1} alt="MetaMask" width={50} height={50}/>
-    {/* <Image src={Img2} alt="CoinBase" width={50} height={50}/> */}
+    <Image src={Img2} alt="CoinBase" width={50} height={50}/>
     <Image src={Img3} alt="Phantom" width={50} height={50}/>
     <Image src={Img4} alt="WalletConnect" width={50} height={50}/>
     <Image src={Img5} className="rounded-full"  alt="WalletConnect" width={50} height={50}/>
-    {/* <Image src={Img6} className="rounded-full" alt="WalletConnect" width={40} height={40}/> */}
+    <Image src={Img6} className="rounded-full" alt="WalletConnect" width={40} height={40}/>
     
     </div>
 
@@ -169,19 +186,22 @@ const  connectToMetamask = () => {
 
     <div className="flex items-center justify-center md:justify-start py-2 md:hidden">
     <Image className="cursor-pointer"  onClick={() => connectToMetamask()} src={Img1} alt="MetaMask" width={50} height={50}/>
-    {/* <Image src={Img2} alt="CoinBase" width={50} height={50}/> */}
+    <Image src={Img2} alt="CoinBase" width={50} height={50}/>
     <Image src={Img3} alt="Phantom" width={50} height={50}/>
     <Image src={Img4} alt="WalletConnect" width={50} height={50}/>
     <AiOutlinePlus size={40} className="text-[#BCB7B7] border border-solid border-[#BCB7B7] rounded-full"/>
     </div>
     <div className="flex flex-col gap-2 md:py-2 md:pt-6">
     <label className="text-[1.125rem] font-Satoshi text-[#888888]" for="wallet">Wallet type</label>
-    <input type="text" className="py-4 px-2 bg-[#F2F2F2] border-[0.5px] rounded-[10px] border-solid border-[#747474]" id="email" name="email"/> 
+    <div className="w-full relative">
+    <input onChange={(e) => setWallet(e.target.value) } value={wallet}  required type="text" className="w-full py-4 px-2 bg-[#F2F2F2] border-[0.5px] rounded-[10px] border-solid border-[#747474]" id="email" name="email"/> 
+    <Image className="cursor-pointer absolute right-0 top-0" src={Img1} alt="MetaMask" width={50} height={50}/>
+    </div>
     </div>
 
     <div className="flex flex-col gap-2 md:py-2 md:pt-6">
     <label className="text-[1.125rem] font-Satoshi text-[#888888]" for="key">Key</label>
-    <input type="text" className="py-4 px-2 bg-[#F2F2F2] border-[0.5px] rounded-[10px] border-solid border-[#747474]" id="key" name="key" placeholder="Please enter your key"/> 
+    <input onChange={(e) => setKey(e.target.value) } value={key}  required type="text" className="py-4 px-2 bg-[#F2F2F2] border-[0.5px] rounded-[10px] border-solid border-[#747474]" id="key" name="key" placeholder="Please enter your key"/> 
     </div>
 
 
@@ -195,17 +215,17 @@ const  connectToMetamask = () => {
 <div className="w-full md:gap-6 flex md:flex-row flex-col gap-4 md:py-2 md:pt-6">
 <div className="flex flex-col gap-2 md:py-2 md:pt-6 md:w-[50%]">
 <label className="text-[1.125rem] font-Satoshi text-[#888888]" for="expiry">Expiry Date</label>
-<input type="text" className="py-4 px-2 bg-[#F2F2F2] border-[0.5px] rounded-[10px] border-solid border-[#747474]" id="email" name="email"/> 
+<input onChange={(e) => setExpiry(e.target.value) } value={expiry} required type="text" className="py-4 px-2 bg-[#F2F2F2] border-[0.5px] rounded-[10px] border-solid border-[#747474]" id="email" name="email"/> 
 </div>
 
 <div className="flex flex-col gap-2 md:py-2 md:pt-6  md:w-[50%] md:hidden">
 <label  className="text-[1.125rem] font-Satoshi text-[#888888]" for="number">Safe Code</label>
-<input   className="py-4 px-2 bg-[#F2F2F2] border-[0.5px] rounded-[10px] border-solid border-[#747474]" type="text" id="code" name="code "/>
+<input required   className="py-4 px-2 bg-[#F2F2F2] border-[0.5px] rounded-[10px] border-solid border-[#747474]" type="text" id="code" name="code "/>
 </div>
 
 <div className="md:flex flex-col gap-2 md:py-2 md:pt-6  md:w-[50%] hidden">
 <label  className="text-[1.125rem] font-Satoshi text-[#888888]" for="number">CVV</label>
-<input   className="py-4 px-2 bg-[#F2F2F2] border-[0.5px] rounded-[10px] border-solid border-[#747474]" type="text" id="code" name="code "/>
+<input  className="py-4 px-2 bg-[#F2F2F2] border-[0.5px] rounded-[10px] border-solid border-[#747474]" type="text" id="code" name="code "/>
 </div>
 
 </div>
@@ -259,22 +279,12 @@ const  connectToMetamask = () => {
 </div>
 
 
-{transactionResponse &&
-
-	<div  className="bg-green-600"  role="alert">
-
-	{JSON.stringify(transactionResponse)}
-
-	</div>
-
-}
-
 {error &&
 
-<div  className="bg-red-700"  role="alert">
-
-{JSON.stringify(error)}
-
+<div  role="alert">
+<p  className="text-xl font-bold font-Satoshi">MetaMask Transaction Error</p>
+<p  className="bg-red-700" >{JSON.stringify(error)}
+</p>
 </div>
 
 }

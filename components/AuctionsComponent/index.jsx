@@ -47,13 +47,28 @@ function AuctionsComponent({imageList}) {
 
       {imageList?.map((item, index) => (
         <SwiperSlide key={index}>
-        <Image
-          src={item?.image}
-          alt="Auction1"
-          width={359}
-          height={250}
-          className="w-[359px] h-[359px]"
-        />
+        <div  className=" text-[#333333] w-fit  flex flex-col md:px-4 rounded-[15px] line-clamp-3  relative">
+          <Image
+             src={item?.image}
+             alt="Auction1"
+             width={359}
+             height={184}
+             className=" w-[359px] h-[359px] rounded-[15px]"
+           />
+           <div className="cursor-pointer" onClick={() => {router.push(`/auctions/${item?.id}`)}}>
+           <p className="font-clashDisplay font-semibold text-[#FFFFFF] text-[2rem] absolute left-0 right-10 bottom-[45%] my-auto mx-auto text-center z-0 ">
+             Join livestream
+             </p>
+             <AiOutlineArrowRight
+               size={40}
+               className="rounded-full border-[0.5px] border-solid  text-[#FFFFFF] border-white   absolute left-2/3 right-0  bottom-[45%] my-auto mx-auto text-center px-2 z-0"
+             />
+            </div>      
+ 
+            <div style={{background: "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), rgba(245, 244, 244, 0.24)",border:"0.5px solid #FFFFFF", backdropFilter:"blur(1.5px)", borderRadius:"8px"}} className="text-[#FFF] py-3 px-8 absolute bottom-12 left-12 right-12">
+             <p className='font-STIX text-[1rem] text-[#FFF] '>06  hrs : 45 min : 22 s</p>
+         </div>
+         </div>
       </SwiperSlide>
       ))}
       </Swiper>

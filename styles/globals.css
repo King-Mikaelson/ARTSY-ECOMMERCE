@@ -275,14 +275,18 @@ body {
   font-size: 1.25rem;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
-  background-color: #bfbfbf;
+  background-color: #3341C1;
   font-weight: bold;
   color: #e0eafc;
   border: none;
   border-radius: 5px;
-  width: 100%;
+  width: 60%;
   height: 60px;
-  margin: 1.5rem 0.5rem
+  margin: 0rem 0.5rem
+}
+
+.paystack-button:hover{
+  background-color: #bfbfbf;
 }
 
 

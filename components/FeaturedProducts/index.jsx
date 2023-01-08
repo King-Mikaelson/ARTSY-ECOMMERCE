@@ -14,10 +14,13 @@ import thumbpic3 from "../../public/Ellipse 15.png";
 import thumbpic4 from "../../public/Ellipse 14.png";
 import Arrow from "../../public/Arrow.png";
 import Loader from "../../public/Loader.png";
+import { useRouter } from "next/router";
 
 
 
 function FeaturedProducts() {
+  const router = useRouter();
+
   return (
     <main className=" mt-0 mb-0">
       <h3 className="text-[#292929] mx-4 font-Satoshi md:font-medium font-bold text-[2rem] leading-[3.143rem] md:mx-24 md:text-[3.429rem] md:leading-[4.64rem]">
@@ -42,15 +45,16 @@ function FeaturedProducts() {
               alt="image"
               objectFit="cover"
             />
-            <p className="font-clashDisplay font-semibold text-[#FFFFFF] text-[2.14rem] leading-[2.64rem] absolute left-0 right-0 top-8 bottom-0 my-auto mx-auto text-center z-0 md:hidden md:font-STIX Two Text md:font-bold md:text-[2.857rem] md:leading-[3.571rem] md:text-[#333333]">
+            <p  className="font-clashDisplay font-semibold text-[#FFFFFF] text-[2.14rem] leading-[2.64rem] absolute left-0 right-0 top-8 bottom-0 my-auto mx-auto text-center z-0 md:hidden md:font-STIX Two Text md:font-bold md:text-[2.857rem] md:leading-[3.571rem] md:text-[#333333]">
               Boolean Egyptian
             </p>
-            <p className="font-clashDisplay font-semibold text-[#FFFFFF] text-[2.14rem] leading-[2.64rem] absolute left-0 right-0   md:bottom-1/2 my-auto mx-auto text-center z-0 hidden md:block group-hover:block md:hidden ">
+            <p onClick={() => router.push("/marketplace")} className="cursor-pointer font-clashDisplay font-semibold text-[#FFFFFF] text-[2.14rem] leading-[2.64rem] absolute left-0 right-0   md:bottom-1/2 my-auto mx-auto text-center z-0 hidden md:block group-hover:block md:hidden ">
             View Product
             </p>
             <AiOutlineArrowRight
+            onClick={() => router.push("/marketplace")}
               size={60}
-              className="rounded-full border-[0.5px] border-solid group-hover:block md:hidden text-[#FFFFFF] border-white   absolute left-2/3 right-0  bottom-10 md:bottom-1/2 my-auto mx-auto text-center px-2 z-0"
+              className="cursor-pointer rounded-full border-[0.5px] border-solid group-hover:block md:hidden text-[#FFFFFF] border-white   absolute left-2/3 right-0  bottom-10 md:bottom-1/2 my-auto mx-auto text-center px-2 z-0"
             />
           </div>
         
@@ -75,8 +79,9 @@ function FeaturedProducts() {
 
           <p className="font-Satoshi text-base font-bold leading-[1.571rem] pt-5  text-[#000000] ">64 major creators</p>
           <AiOutlineArrowRight
+            onClick={() => router.push("/auctions")}
               size={60}
-              className="rounded-full border-[0.5px] border-solid  md:text-[#616161] text-[#FFFFFF] border-white md:border-[#616161]  md:block hidden my-auto mx-auto text-center px-2 z-0"
+              className="cursor-pointer rounded-full border-[0.5px] border-solid  md:text-[#616161] text-[#FFFFFF] border-white md:border-[#616161]  md:block hidden my-auto mx-auto text-center px-2 z-0"
             />
           </div>
         </div>
@@ -107,12 +112,13 @@ function FeaturedProducts() {
             <p className="font-clashDisplay font-semibold text-[#FFFFFF] text-[2.14rem] leading-[2.64rem] absolute left-0 right-0 top-8 bottom-0 my-auto mx-auto text-center z-0 md:hidden">
              Are We There Yet?
             </p>
-            <p className="font-clashDisplay font-semibold text-[#FFFFFF] text-[2.14rem] leading-[2.64rem] absolute left-0 right-0   md:bottom-1/2 my-auto mx-auto text-center z-0 hidden md:block group-hover:block md:hidden ">
+            <p onClick={() => router.push("/marketplace")} className="cursor-pointer font-clashDisplay font-semibold text-[#FFFFFF] text-[2.14rem] leading-[2.64rem] absolute left-0 right-0   md:bottom-1/2 my-auto mx-auto text-center z-0 hidden md:block group-hover:block md:hidden ">
             View Product
             </p>
             <AiOutlineArrowRight
+            onClick={() => router.push("/marketplace")}
               size={60}
-              className="rounded-full border-[0.5px] border-solid group-hover:block md:hidden text-[#FFFFFF] border-white   absolute left-2/3 right-0  bottom-10 md:bottom-1/2 my-auto mx-auto text-center px-2 z-0"
+              className="cursor-pointer rounded-full border-[0.5px] border-solid group-hover:block md:hidden text-[#FFFFFF] border-white   absolute left-2/3 right-0  bottom-10 md:bottom-1/2 my-auto mx-auto text-center px-2 z-0"
             />
           </div>
 
@@ -137,8 +143,9 @@ function FeaturedProducts() {
 
           <p className="font-Satoshi text-base font-bold leading-[1.571rem] pt-5  text-[#000000] ">64 major creators</p>
           <AiOutlineArrowRight
+          onClick={() => router.push("/auctions")}
               size={60}
-              className="rounded-full border-[0.5px] border-solid  md:text-[#616161] text-[#FFFFFF] border-white md:border-[#616161]  md:block hidden my-auto mx-auto text-center px-2 z-0"
+              className="cursor-pointer rounded-full border-[0.5px] border-solid  md:text-[#616161] text-[#FFFFFF] border-white md:border-[#616161]  md:block hidden my-auto mx-auto text-center px-2 z-0"
             />
           </div>
         </div>
@@ -169,12 +176,13 @@ function FeaturedProducts() {
             <p className="font-clashDisplay font-semibold text-[#FFFFFF] text-[2.14rem] leading-[2.64rem] absolute left-0 right-0 top-8 bottom-0 my-auto mx-auto text-center z-0 md:hidden ">
             Oloibiri 1997
             </p>
-            <p className="font-clashDisplay font-semibold text-[#FFFFFF] text-[2.14rem] leading-[2.64rem] absolute left-0 right-0   md:bottom-1/2 my-auto mx-auto text-center z-0 hidden md:block group-hover:block md:hidden ">
+            <p onClick={() => router.push("/marketplace")} className="cursor-pointer font-clashDisplay font-semibold text-[#FFFFFF] text-[2.14rem] leading-[2.64rem] absolute left-0 right-0   md:bottom-1/2 my-auto mx-auto text-center z-0 hidden md:block group-hover:block md:hidden ">
             View Product
             </p>
             <AiOutlineArrowRight
+             onClick={() => router.push("/marketplace")}
               size={60}
-              className="rounded-full border-[0.5px] border-solid group-hover:block md:hidden text-[#FFFFFF] border-white   absolute left-2/3 right-0  bottom-10 md:bottom-1/2 my-auto mx-auto text-center px-2 z-0"
+              className="cursor-pointer rounded-full border-[0.5px] border-solid group-hover:block md:hidden text-[#FFFFFF] border-white   absolute left-2/3 right-0  bottom-10 md:bottom-1/2 my-auto mx-auto text-center px-2 z-0"
             />
           </div>
 
@@ -199,8 +207,9 @@ function FeaturedProducts() {
 
           <p className="font-Satoshi text-base font-bold leading-[1.571rem] pt-5  text-[#000000] ">64 major creators</p>
           <AiOutlineArrowRight
+          onClick={() => router.push("/auctions")}
               size={60}
-              className="rounded-full border-[0.5px] border-solid  md:text-[#616161] text-[#FFFFFF] border-white md:border-[#616161]  md:block hidden my-auto mx-auto text-center px-2 z-0"
+              className="cursor-pointer rounded-full border-[0.5px] border-solid  md:text-[#616161] text-[#FFFFFF] border-white md:border-[#616161]  md:block hidden my-auto mx-auto text-center px-2 z-0"
             />
           </div>
         </div>
@@ -236,7 +245,7 @@ function FeaturedProducts() {
         </div>
 
         <div className=" mt-32 flex flex-col ">
-            <div className="md:px-20  flex py-6 items-center justify-between px-4 border border-[#000000] border-solid">
+            <div  onClick={() => router.push("/marketplace")} className="md:px-20 cursor-pointer  flex py-6 items-center justify-between px-4 border border-[#000000] border-solid">
             <p className="font-Satoshi font-semibold text-[1.714rem] text-[#292929] leading-[2.29rem]">Explore marketplace</p>
             <AiOutlineArrowRight
               size={60}
@@ -244,7 +253,7 @@ function FeaturedProducts() {
               className="rounded-full  border-[0.5px] border-solid border-[#616161] md:border-none  px-2 z-0"
             />
             </div>
-            <div className="md:px-20  flex py-6 items-center justify-between px-4 border border-[#000000] border-solid ">
+            <div  onClick={() => router.push("/auctions")} className="md:px-20 cursor-pointer flex py-6 items-center justify-between px-4 border border-[#000000] border-solid ">
             <p className="font-Satoshi font-semibold text-[1.714rem] text-[#292929] leading-[2.29rem]">See auctions</p>
             <AiOutlineArrowRight
               size={60}

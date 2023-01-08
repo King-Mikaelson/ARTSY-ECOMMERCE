@@ -7,11 +7,12 @@ import AppContext from '../Context/AppContext';
 import {useState, useContext} from "react";
 import { PaystackButton } from 'react-paystack';
 import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
+import { useRouter } from "next/router";
 
 
 function ShippingInfo() {
 
-    
+    const router = useRouter();
 
     const {
         state: { cart },
@@ -30,43 +31,47 @@ function ShippingInfo() {
       const [email, setEmail] = useState("")
       const [name, setName] = useState("")
       const [phone, setPhone] = useState("")
+      const [wallet, setWallet] = useState("metamask")
     
 
-    //   const componentProps = {
-    //     email,
-    //     amount,
-    //     metadata: {
-    //       name,
-    //       phone,
-    //     },
-    //     publicKey,
-    //     text: "Pay with PayStack",
-    //     onSuccess: () =>
-    //       alert("Thanks for doing business with us! Come back soon!!"),
-    //     onClose: () => alert("Wait! You need this oil, don't go!!!!"),
-    //   }
+      const componentProps = {
+        email,
+        amount,
+        metadata: {
+          name,
+          phone,
+        },
+        publicKey,
+        text: "Pay with PayStack",
+        onSuccess: () => {
+        alert("Thanks for doing business with us! Come back soon!!");
+        router.push("/success")
+        } ,
+        
+        onClose: () => alert("Wait! You need this oil, don't go!!!!"),
+      }
 
 
 
-    //   const config = {
-    //     public_key: 'FLWPUBK_TEST-SANDBOXDEMOKEY-X',
-    //     tx_ref: Date.now(),
-    //     amount: cartTotal,
-    //     currency: 'NGN',
-    //     payment_options: 'card,mobilemoney,ussd',
-    //     customer: {
-    //       email: email,
-    //        phone_number: phone,
-    //       name: name,
-    //     },
-    //     customizations: {
-    //       title: 'my Payment Title',
-    //       description: 'Payment for items in cart',
-    //       logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
-    //     },
-    //   };
+      const config = {
+        public_key: 'FLWPUBK_TEST-SANDBOXDEMOKEY-X',
+        tx_ref: Date.now(),
+        amount: cartTotal,
+        currency: 'NGN',
+        payment_options: 'card,mobilemoney,ussd',
+        customer: {
+          email: email,
+           phone_number: phone,
+          name: name,
+        },
+        customizations: {
+          title: 'my Payment Title',
+          description: 'Payment for items in cart',
+          logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
+        },
+      };
     
-    //   const handleFlutterPayment = useFlutterwave(config);
+      const handleFlutterPayment = useFlutterwave(config);
     
 
   return (
@@ -101,10 +106,11 @@ function ShippingInfo() {
 
     <div className="flex flex-col gap-2 md:py-2 md:pt-6">
     <label  className="text-[1.125rem] font-Satoshi text-[#888888]" for="wallet">Choose a Wallet</label>
-    <select  className="py-4 px-2 bg-[#F2F2F2] border-[0.5px] rounded-[10px] border-solid border-[#747474]" id="wallet" name="wallet">
-      <option value="coinBase">CoinBase</option>
+    <select onChange={(e) => setWallet(e.target.value)}  className="py-4 px-2 bg-[#F2F2F2] border-[0.5px] rounded-[10px] border-solid border-[#747474]" id="wallet" name="wallet">
+      <option value="coinbase">CoinBase</option>
       <option value="metamask">MetaMask</option>
       <option value="paystack">PayStack</option>
+      <option value="flutterwave">Flutterwave</option>
     </select>    
     </div>
 
@@ -147,11 +153,13 @@ function ShippingInfo() {
     </div>
     <div className="px-4 my-10 md:flex md:justify-between md:mx-6 ">
         <div className="flex flex-col justify-center my-5 items-center">
-          <Link href="/payment/checkout">
+          {wallet === "metamask" || wallet === "coinbase" ? (
+            <Link href="/payment/checkout">
             <button className="md:mt-16 bg-[#3341C1] px-4 py-5 md:px-10 md:py-7 font-Satoshi text-[1.09rem] md:text-[2rem] font-medium leading-[1.5rem] text-[#FFFFFF] rounded-[4px]">
               Proceed to Payment
             </button>
           </Link>
+            ) : ""}
           <Link href="/payment">
             <p className="md:hidden font-Satoshi text-center text-[1.125rem] md:text-[1.75rem]  leading-[1.5rem] text-[#006CA2] mt-6 underline">
               Go Back To Cart
@@ -160,23 +168,31 @@ function ShippingInfo() {
         </div>
       </div>
   </form>
-  {/* <PaystackButton className="paystack-button" {...componentProps} />
+  {wallet === "paystack" && (
+      <PaystackButton className="paystack-button" {...componentProps} />
+    )
+}
 
-  <button
-        onClick={() => {
-          handleFlutterPayment({
-            callback: (response) => {
-               console.log(response);
-                closePaymentModal() // this will close the modal programmatically
-            },
-            onClose: () => {},
-          });
-        }}
-        className="paystack-button"
-      >
-        Payment with Flutterwave
-      </button> */}
-
+{wallet === "flutterwave" && (
+   <button
+   onClick={() => {
+    if(name == "" || phone == "" ||email == "") {alert("Please fill in all fields")}
+    else{
+      handleFlutterPayment({
+        callback: (response) => {
+           console.log(response);
+            closePaymentModal() // this will close the modal programmatically
+        },
+        onClose: () => {},
+      });
+    }
+   }}
+   className="paystack-button"
+ >
+   Pay with Flutterwave
+ </button>
+)
+}
         </div>
 
 
