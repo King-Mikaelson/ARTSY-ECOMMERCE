@@ -5,7 +5,7 @@ import Img1 from "../../assets/MetaMask.png";
 import Img3 from "../../assets/Phantom.png";
 import Img4 from "../../assets/WalletConnect.png";
 import Img5 from "../../assets/PaystackLogo.png";
-import Img6 from "../../assets/FlutterWaveLogo.png"
+// import Img6 from "../../assets/FlutterWaveLogo.png"
 import { AiOutlinePlus } from "react-icons/ai";
 import Image from "next/image";
 import AppContext from '../Context/AppContext';
