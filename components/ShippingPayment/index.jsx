@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {BiLock} from "react-icons/bi";
 import Img1 from "../../assets/MetaMask.png";
-import Img2 from "../../assets/CoinBase.png";
+// import Img2 from "../../assets/CoinBase.png";
 import Img3 from "../../assets/Phantom.png";
 import Img4 from "../../assets/WalletConnect.png";
 import Img5 from "../../assets/PaystackLogo.png";
@@ -171,11 +171,11 @@ const  connectToMetamask = () => {
 
 <div className="md:flex  md:flex-col lg:flex-row items-center justify-start py-2 hidden">
     <Image className="cursor-pointer"  onClick={() => connectToMetamask()} src={Img1} alt="MetaMask" width={50} height={50}/>
-    <Image src={Img2} alt="CoinBase" width={50} height={50}/>
+    {/* <Image src={Img2} alt="CoinBase" width={50} height={50}/> */}
     <Image src={Img3} alt="Phantom" width={50} height={50}/>
     <Image src={Img4} alt="WalletConnect" width={50} height={50}/>
     <Image src={Img5} className="rounded-full"  alt="WalletConnect" width={50} height={50}/>
-    <Image src={Img6} className="rounded-full" alt="WalletConnect" width={40} height={40}/>
+    {/* <Image src={Img6} className="rounded-full" alt="WalletConnect" width={40} height={40}/> */}
     
     </div>
 
@@ -186,7 +186,7 @@ const  connectToMetamask = () => {
 
     <div className="flex items-center justify-center md:justify-start py-2 md:hidden">
     <Image className="cursor-pointer"  onClick={() => connectToMetamask()} src={Img1} alt="MetaMask" width={50} height={50}/>
-    <Image src={Img2} alt="CoinBase" width={50} height={50}/>
+    {/* <Image src={Img2} alt="CoinBase" width={50} height={50}/> */}
     <Image src={Img3} alt="Phantom" width={50} height={50}/>
     <Image src={Img4} alt="WalletConnect" width={50} height={50}/>
     <AiOutlinePlus size={40} className="text-[#BCB7B7] border border-solid border-[#BCB7B7] rounded-full"/>
